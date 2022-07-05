@@ -4,10 +4,15 @@
       style="margin-top: 3rem"
       class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2"
     >
+      <input
+        style="margin-bottom: 1rem"
+        type="text"
+        [(ngModel)]="filteredStatus"
+      />
       <ul class="list-group">
         <li
           class="list-group-item"
-          *ngFor="let server of servers"
+          *ngFor="let server of servers | filter: filteredStatus:'status'"
           [ngClass]="getStatusClasses(server)"
         >
           <span class="badge">
